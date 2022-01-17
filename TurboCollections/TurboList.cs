@@ -1,8 +1,19 @@
 ﻿namespace TurboCollections
 {
    
-public class TurboList
-{
+    public class TurboList<T>
+    {
+        public int Count => 0;
+        
+        public TurboList()
+        {
+            Console.WriteLine("Hello, Turbo!");
+        }
+
+        public void Add()
+        {
+            
+        }
     
-} 
+    } 
 }
