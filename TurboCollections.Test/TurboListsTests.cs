@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 
@@ -51,6 +52,38 @@ public class TurboListsTests
         list.Add(3);
         Assert.AreEqual(false,list.Contains(5));
     }
+
+    [Test]
+    public void RemoveLetterT()
+    {
+        var list = new TurboList<string>();
+        list.Add("A");
+        list.Add("T");
+        list.Add("F");
+        list.Add("C");
+        list.RemoveAt(1);
+        for (var i = 0; i < list.Count; i++)
+        {
+            Console.WriteLine(list.Get(i));
+        }
+        Assert.AreEqual(false,list.Contains("T"));
+    }
+
+    [Test]
+    public void MakeArraySmaller()
+    {
+        var list = new TurboList<int>();
+        list.Add(1);
+        list.Add(2);
+        list.Add(3);
+        list.Add(4);
+        list.RemoveAt(1);
+        for (var i = 0; i < list.Count; i++)
+        {
+            Console.WriteLine(list.Get(i));
+        }
+        Assert.AreEqual(3,list.Count);
+    }
     
     [Test]
     public void ContainsNumberThree()
@@ -62,5 +95,13 @@ public class TurboListsTests
         Assert.AreEqual(true,list.Contains(3));
     }
 
-    
+    [Test]
+    public void SizeIncreasesByThree()
+    {
+        var list = new TurboList<int>();
+        list.Add(100);
+       /// list.AddRange(100,20,500,30);
+    }
+
+
 }

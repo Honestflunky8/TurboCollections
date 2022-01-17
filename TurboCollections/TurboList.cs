@@ -29,7 +29,6 @@
             {
                 newArray[i] = items[i];
             }
-
             return newArray;
         }
 
@@ -43,14 +42,24 @@
             items = Array.Empty<T>();
         }
 
-       // public void RemoveAt(int index)
-       // {
-       //     items[index] = default;
-       //     for(var i = Get(index); i < items.Length; i++ )
-       //     {
-       //         if(items[Getitem]< items[index])
-       //     }
-       // }
+       public void RemoveAt(int index)
+       {
+           //items[index] = default;
+           for(var i = index; i < items.Length-1; i++ )
+           { 
+              
+               
+               if (i == items.Length-1)
+               {
+                  // items[i] = default;
+                  items = ResizeArray(-1);
+                   break;
+               }
+               else
+                items[i] = items[i + 1];
+               
+           }
+       }
 
        public bool Contains(T item)
        {
@@ -63,6 +72,25 @@
            }
 
            return false;
+       }
+
+       // public int IndexOf(T item)
+       // {
+       //     
+       // }
+
+       public void Remove(T item)
+       {
+           
+       }
+
+       public void AddRange(IEnumerable<T> things)
+       {
+           
+           foreach (var thing in things)
+           {
+               Add(thing);
+           }
        }
 
     } 
