@@ -5,7 +5,10 @@
     {
 
         T[] items = Array.Empty<T>();
-        int count;
+        public TurboList()
+        {
+            Console.WriteLine("Hello, Turbo!");
+        }
         public int Count => items.Length;
         
         
@@ -34,16 +37,33 @@
         {
             return items[index];
         }
-        
-        public TurboList()
+
+        public void Clear()
         {
-            Console.WriteLine("Hello, Turbo!");
+            items = Array.Empty<T>();
         }
 
-        // public void Add()
-        // {
-        //     
-        // }
-    
+       // public void RemoveAt(int index)
+       // {
+       //     items[index] = default;
+       //     for(var i = Get(index); i < items.Length; i++ )
+       //     {
+       //         if(items[Getitem]< items[index])
+       //     }
+       // }
+
+       public bool Contains(T item)
+       {
+           for (var i = 0; i < items.Length; i++)
+           {
+               if (items[i].Equals(item))
+               {
+                   return true;
+               }
+           }
+
+           return false;
+       }
+
     } 
 }
