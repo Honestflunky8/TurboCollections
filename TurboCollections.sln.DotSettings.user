@@ -8,6 +8,11 @@
       &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests.PoppingReturnsValue&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests.ListIsEmptyAfterClear&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests.StackIsEmptyAfterClear&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests+ClearTests.StackIsEmptyAfterClear&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests+PopTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests+PeekTests.CanPeekTheSameValueTwice&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests+CountTests.CountOfStackIsFive&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::FB682473-5139-46BC-9B1E-A83B04484344::net6.0::TurboStack.Test.Tests+CountTests&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

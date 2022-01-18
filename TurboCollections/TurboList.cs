@@ -62,7 +62,15 @@
         /// <returns></returns>
         public T Get(int index)
         {
-            return items[index];
+            if (index <= items.Length)
+            {
+                return items[index];
+            }
+            else
+            {
+                throw new Exception("Index value does not exit in the list.");
+            }
+            
         }
 
         /// <summary>
@@ -96,18 +104,10 @@
         /// <param name="index"></param>
         public void RemoveAt(int index)
         {
-            T[] newArray = new T[Count - 1];
-            for (int i = 0; i < index; i++)
+            for (int i = index; i < Count - 1; i++)
             {
-                newArray[i] = items[i];
+                items[i] = items[i + 1];
             }
-
-            for (int i = index; i < (Count) - index; i++)
-            {
-                newArray[i] = items[i + 1];
-            }
-
-            items = newArray;
             Count--;
         }
 
@@ -136,7 +136,7 @@
        /// <returns></returns>
        public int IndexOf(T item)
        {
-           for (var i = 0; i < Count; i++)
+           for (var i = 0; i <= Count; i++)
            {
                if (items[i].Equals(item))
                {

@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TurboCollections\TurboCollections.csproj" />
+      <ProjectReference Include="..\TurboStack\TurboStack.csproj" />
     </ItemGroup>
 
 </Project>
