@@ -1,7 +1,9 @@
-﻿namespace TurboCollections
+﻿using System.Collections;
+
+namespace TurboCollections
 {
    
-    public class TurboList<T>
+    public class TurboList<T> : IEnumerable<T>
     {
 
         T[] items = Array.Empty<T>();
@@ -104,11 +106,19 @@
         /// <param name="index"></param>
         public void RemoveAt(int index)
         {
-            for (int i = index; i < Count - 1; i++)
+            if (index <= items.Length)
             {
-                items[i] = items[i + 1];
+                for (int i = index; i < Count - 1; i++)
+                {
+                    items[i] = items[i + 1];
+                }
+                Count--;
             }
-            Count--;
+            else
+            {
+                throw new Exception("Index not within list size.");
+            }
+            
         }
 
         /// <summary>
@@ -175,7 +185,7 @@
        /// <param name="item"></param>
        public void Remove(T item)
        {
-           if (IndexOf(item) != -1)
+           if (items.Contains(item))
            {
                RemoveAt(IndexOf(item));
            }
@@ -192,6 +202,51 @@
            foreach (var thing in things)
            {
                Add(thing);
+           }
+       }
+       
+       public IEnumerator<T> GetEnumerator()
+       {
+           return new Enumerator(items, Count);
+       }
+       
+
+       IEnumerator IEnumerable.GetEnumerator()
+       {
+           return GetEnumerator();
+       }
+        
+       public struct Enumerator : IEnumerator<T>
+       {
+           private readonly T[] _items;
+           private readonly int _count;
+           private int _index;
+
+           public Enumerator(T[] items, int count)
+           {
+               _items = items;
+               _count = count;
+               _index = -1;
+           }
+           public bool MoveNext()
+           {
+               if (_index >= _count)
+                   return false; // exception
+               return ++_index < _count;
+           }
+
+           public void Reset()
+           {
+               _index = -1;
+           }
+
+           public T Current => _items[_index];
+
+           object IEnumerator.Current => Current;
+
+           public void Dispose()
+           {
+               Reset();
            }
        }
 
