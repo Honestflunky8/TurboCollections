@@ -96,6 +96,20 @@ public class TurboListsTests
     }
 
     [Test]
+    public void CanReplaceValueThreeAtIndexFourWithEight()
+    {
+        var list = new TurboList<int>();
+        list.Add(20);
+        list.Add(111);
+        list.Add(1);
+        list.Add(3);
+        list.Add(111);
+        list.Add(2);
+        list.Set(4, 8);
+        Assert.AreEqual(8,list.Get(4));
+    }
+
+    [Test]
     public void SizeIncreasesByThree()
     {
         var list = new TurboList<int>();

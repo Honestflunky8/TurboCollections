@@ -37,6 +37,11 @@
             return items[index];
         }
 
+        public T Set(int index, T value)
+        {
+            return items[index] = value;
+        }
+
         public void Clear()
         {
             items = Array.Empty<T>();
