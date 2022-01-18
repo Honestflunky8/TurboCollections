@@ -26,7 +26,7 @@ namespace CustomerManagement
             Console.WriteLine("Have a pleasant day!");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("The program will now close");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         static public void StartUpMessage()
@@ -39,12 +39,17 @@ namespace CustomerManagement
         static public void OptionsDisplay()
         {
             Console.WriteLine("Your options are: ");
-            Console.WriteLine("Adding a Customer (1)");
-            Console.WriteLine("Removing a Customer by name (2)");
-            Console.WriteLine("Removing a Customer by index (3)");
-            Console.WriteLine("Retrieving all Customers from the Database (4)");
-            Console.WriteLine("Exit Program (5)");
-            var response = Console.ReadLine();
+            Console.Write("Adding a Customer ");
+            ChangeColorOfNumber(1);
+            Console.Write("Removing a Customer by name ");
+            ChangeColorOfNumber(2);
+            Console.Write("Removing a Customer by index ");
+            ChangeColorOfNumber(3);
+            Console.Write("Retrieving all Customers from the Database ");
+            ChangeColorOfNumber(4);
+            Console.Write("Exit Program ");
+            ChangeColorOfNumber(5);
+            var response = RequestResponse();
             if (response == "1") // Add Customer
             {
                 AddingCustomer();
@@ -72,37 +77,57 @@ namespace CustomerManagement
             }
             
         }
+
+        static string? RequestResponse()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            var response = Console.ReadLine().ToLower();
+            Console.ForegroundColor = ConsoleColor.Gray;
+            return response;
+        }
+
+        static void ChangeColorOfNumber(int number)
+        {
+            Console.Write("(");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write(number);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(")");
+        }
         static void AddingCustomer()
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("What's the Name of the Customer you would like to add to the Customer list?");
-            var response = Console.ReadLine().ToLower();
+            var response = RequestResponse();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             AddCustomer(response);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
         static void RemovingCustomerByName()
        {
            Console.ForegroundColor = ConsoleColor.DarkYellow;
            Console.WriteLine("What's the Name of the Customer you would like to remove from the Customer list?");
-           var response = Console.ReadLine().ToLower();
+           var response = RequestResponse();
+           Console.ForegroundColor = ConsoleColor.DarkYellow;
            RemoveCustomer(response);
-           Console.ForegroundColor = ConsoleColor.White;
+           Console.ForegroundColor = ConsoleColor.Gray;
        }
         
         static void RemovingCustomerByIndex()
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("What's the Index of the Customer you would like to remove from the Customer list?");
-            var response = Console.ReadLine();
+            var response = RequestResponse();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             RemoveCustomer(Convert.ToInt32(response));
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
         static void RetrievingAllCustomers()
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Here's a list of all current Customers in the database:");
             GetAllCustomers();
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
         
         static public void AddCustomer(string name)
@@ -141,12 +166,14 @@ namespace CustomerManagement
 
         static public void GetAllCustomers()
         {
-            if (_customerList.Count == 0)
+            var customerCount = _customerList.Count;
+            if (customerCount == 0)
             {
-                Console.WriteLine("There currently exist no customers in the database");
+                Console.WriteLine($"There currently exist {customerCount} customers in the database");
                 return;
             }
-            for (var i = 0; i < _customerList.Count; i++)
+            Console.WriteLine($"There currently exist {customerCount} customers in the database");
+            for (var i = 0; i < customerCount; i++)
             {
                 Console.WriteLine(_customerList.Get(i));
                 
