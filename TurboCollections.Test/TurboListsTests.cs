@@ -132,5 +132,27 @@ public class TurboListsTests
        /// list.AddRange(100,20,500,30);
     }
 
+    [Test]
+    public void IndexOf5Is3()
+    {
+        var list = new TurboList<int>();
+        list.Add(100);
+        list.Add(2);
+        list.Add(1);
+        list.Add(5);
+        Assert.AreEqual(3, list.IndexOf(5));
+    }
+    
+    [Test]
+    public void AllIndicesOf5Is1And3()
+    {
+        var list = new TurboList<int>();
+        list.Add(2);
+        list.Add(5);
+        list.Add(1);
+        list.Add(5);
+       // Assert.AreEqual(1, list.AllIndicesOf(5)[0]);
+    }
+
 
 }

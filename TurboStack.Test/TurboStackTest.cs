@@ -55,4 +55,5 @@ public class Tests
         stack.Clear();
         Assert.AreEqual(0,stack.Count);
     }
+    
 }

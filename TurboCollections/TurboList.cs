@@ -103,10 +103,44 @@
            return false;
        }
 
-       // public int IndexOf(T item)
-       // {
-       //     
-       // }
+       /// <summary>
+       /// // returns the index of the given item if it is in the list, else -1.
+       /// </summary>
+       /// <param name="item"></param>
+       /// <returns></returns>
+       public int IndexOf(T item)
+       {
+           for (var i = 0; i < Count; i++)
+           {
+               if (items[i].Equals(item))
+               {
+                    return i;
+               }
+           }
+
+            return -1;
+       }
+       
+       public IEnumerable<int> AllIndicesOf(T item)
+       {
+           bool hasElement = false;
+           for (var i = 0; i < Count; i++)
+           {
+               if (items[i].Equals(item))
+               {
+
+                   hasElement = true;
+                   yield return i;
+               }
+           }
+
+
+           if (hasElement == false)
+           {
+               yield return -1;
+           }
+           
+       }
 
        public void Remove(T item)
        {
