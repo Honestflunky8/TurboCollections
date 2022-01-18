@@ -5,40 +5,53 @@
     {
 
         T[] items = Array.Empty<T>();
-        public TurboList()
+
+        /// <summary>
+        /// Gives the amount of items inside of the List
+        /// </summary>
+        public int Count
         {
-            Console.WriteLine("Hello, Turbo!");
+            get;
+            private set;
         }
-        public int Count => items.Length;
+
+        /// <summary>
+        /// Gives the size of the List
+        /// </summary>
+        public int Lenght => items.Length;
         
-        
+        /// <summary>
+        /// Adds an item to the list
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(T item)
         {
-            if (items.Length > 1 &&items[^1] == null)
+            EnsureSize(Count+1);
+            items[Count++] = item;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="size"></param>
+        void EnsureSize(int size)
+        {
+            if (items.Length >= size)
             {
-               items = ResizeArray( items.Length); 
-            }
-            else
-            {items = ResizeArray( 1); 
-                
+                return;
             }
 
-            // if (items == Array.Empty<T>())
-            // {
-            //     ResizeArray(4);
-            // }
-            //
-            // if(items[^1] == null){  
-            //     items = ResizeArray( 4); 
-            // }
-            // if(items[^1].Equals("")){      
-            //     items = ResizeArray( 4); 
-            // }
+            //Double array size or set to given size if not enough.
+            int newSize = Math.Max(size, items.Length * 2);
             
-            
-            //Asigning the new element
-            items[Count-1] = item;
-            
+            T[] newArray = new T[newSize];
+            for (int i = 0; i < Count; i++)
+            {
+                newArray[i] = items[i];
+            }
+            //Assign new array 
+           items = newArray;
+
         }
 
         T[] ResizeArray(int sizeChange)
@@ -61,37 +74,25 @@
             return items[index];
         }
 
-        public T Set(int index, T value)
+        public void Set(int index, T item)
         {
-            return items[index] = value;
+            if (index >= Count)
+            {
+                EnsureSize(index+1);
+                Count = index + 1;
+            }
+             items[index] = item;
         }
 
         public void Clear()
         {
             items = Array.Empty<T>();
+            Count = 0;
         }
 /// <summary>
 /// // Removes one item from the list.
 /// </summary>
 /// <param name="index"></param>
-       // public void RemoveAt(int index)
-       // {
-       //     //items[index] = default;
-       //     for(var i = index; i < items.Length-1; i++ )
-       //     { 
-       //        
-       //         
-       //         if (i == items.Length-1)
-       //         {
-       //            // items[i] = default;
-       //            items = ResizeArray(-1);
-       //             break;
-       //         }
-       //         else
-       //          items[i] = items[i + 1];
-       //         
-       //     }
-       // }
 
 public void RemoveAt(int index)
 {
@@ -107,6 +108,7 @@ public void RemoveAt(int index)
     }
 
     items = newArray;
+    Count--;
 }
 
        public bool Contains(T item)
@@ -166,22 +168,15 @@ public void RemoveAt(int index)
        ///  Removes the specified item from the list, if it can be found.
        /// </summary>
        /// <param name="item"></param>
-       // public void Remove(T item)
-       // {
-       //     for (var i = 0; i < Count; i++)
-       //     {
-       //         if (items[i].Equals(item))
-       //         {
-       //             RemoveAt(i);
-       //         }
-       //     }
-       // }
-       
        public void Remove(T item)
        {
            if (IndexOf(item) != -1)
            {
                RemoveAt(IndexOf(item));
+           }
+           else
+           {
+               throw new System.Exception("Item does not exit in list");
            }
        }
        
