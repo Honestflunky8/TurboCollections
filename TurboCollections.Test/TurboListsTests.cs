@@ -84,6 +84,21 @@ public class TurboListsTests
         }
         Assert.AreEqual(3,list.Count);
     }
+
+    [Test]
+    public void MakeArrayDoubleSizeOnlyWhenLastItemInArrayIsFilled()
+    {
+        var list = new TurboList<int>();
+        list.Add(1);
+        Console.WriteLine(list.Count);
+        list.Add(2);
+        Console.WriteLine(list.Count);
+        list.Add(3);
+        Console.WriteLine(list.Count);
+        list.Add(4);
+        Console.WriteLine(list.Count);
+        Assert.AreEqual(7,list.Count);
+    }
     
     [Test]
     public void ContainsNumberThree()

@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManagement", "Custo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboCollections.Test", "TurboCollections.Test\TurboCollections.Test.csproj", "{FE39802B-D6D8-4423-9734-F6E8311838D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboStack", "TurboStack\TurboStack.csproj", "{C8097686-8F31-4CED-992D-41B96A95DEFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboStack.Test", "TurboStack.Test\TurboStack.Test.csproj", "{FB682473-5139-46BC-9B1E-A83B04484344}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{FE39802B-D6D8-4423-9734-F6E8311838D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE39802B-D6D8-4423-9734-F6E8311838D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE39802B-D6D8-4423-9734-F6E8311838D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8097686-8F31-4CED-992D-41B96A95DEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8097686-8F31-4CED-992D-41B96A95DEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8097686-8F31-4CED-992D-41B96A95DEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8097686-8F31-4CED-992D-41B96A95DEFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB682473-5139-46BC-9B1E-A83B04484344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB682473-5139-46BC-9B1E-A83B04484344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB682473-5139-46BC-9B1E-A83B04484344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB682473-5139-46BC-9B1E-A83B04484344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

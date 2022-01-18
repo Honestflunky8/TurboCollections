@@ -14,7 +14,27 @@
         
         public void Add(T item)
         {
-            items = ResizeArray(1);
+            if (items.Length > 1 &&items[^1] == null)
+            {
+               items = ResizeArray( items.Length); 
+            }
+            else
+            {items = ResizeArray( 1); 
+                
+            }
+
+            // if (items == Array.Empty<T>())
+            // {
+            //     ResizeArray(4);
+            // }
+            //
+            // if(items[^1] == null){  
+            //     items = ResizeArray( 4); 
+            // }
+            // if(items[^1].Equals("")){      
+            //     items = ResizeArray( 4); 
+            // }
+            
             
             //Asigning the new element
             items[Count-1] = item;
@@ -25,10 +45,14 @@
         {
             //Resizing the array
             T[] newArray = new T[Count + sizeChange];
-            for (int i = 0; i < Count; i++)
+            if (items != Array.Empty<T>())
             {
-                newArray[i] = items[i];
+                for (int i = 0; i < Count; i++)
+                {
+                    newArray[i] = items[i];
+                }
             }
+            
             return newArray;
         }
 
