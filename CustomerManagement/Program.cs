@@ -153,10 +153,5 @@ namespace CustomerManagement
             }
         }
         
-        
-        // (1) Add a Customer
-        //     (2) Remove a Customer by name
-        //     (3) Remove a Customer by index
-        //     (4) Display all Customers
     }
 }
