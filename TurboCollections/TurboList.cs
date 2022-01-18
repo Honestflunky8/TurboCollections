@@ -162,10 +162,29 @@ public void RemoveAt(int index)
            
        }
 
+       /// <summary>
+       ///  Removes the specified item from the list, if it can be found.
+       /// </summary>
+       /// <param name="item"></param>
+       // public void Remove(T item)
+       // {
+       //     for (var i = 0; i < Count; i++)
+       //     {
+       //         if (items[i].Equals(item))
+       //         {
+       //             RemoveAt(i);
+       //         }
+       //     }
+       // }
+       
        public void Remove(T item)
        {
-           
+           if (IndexOf(item) != -1)
+           {
+               RemoveAt(IndexOf(item));
+           }
        }
+       
 
        public void AddRange(IEnumerable<T> things)
        {

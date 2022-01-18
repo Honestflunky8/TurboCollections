@@ -154,5 +154,17 @@ public class TurboListsTests
        // Assert.AreEqual(1, list.AllIndicesOf(5)[0]);
     }
 
+    [Test]
+    public void RemoveNumber1FromList()
+    {
+        var list = new TurboList<int>();
+        list.Add(2);
+        list.Add(5);
+        list.Add(1);
+        list.Add(5);
+        list.Remove(1);
+        Assert.AreEqual(false, list.Contains(1));
+    }
+
 
 }
