@@ -31,7 +31,8 @@
         }
 
         /// <summary>
-        /// 
+        /// Increases size of the array if needed.
+        /// Size of array is doubled when increased.
         /// </summary>
         /// <param name="size"></param>
         void EnsureSize(int size)
@@ -54,26 +55,22 @@
 
         }
 
-        T[] ResizeArray(int sizeChange)
-        {
-            //Resizing the array
-            T[] newArray = new T[Count + sizeChange];
-            if (items != Array.Empty<T>())
-            {
-                for (int i = 0; i < Count; i++)
-                {
-                    newArray[i] = items[i];
-                }
-            }
-            
-            return newArray;
-        }
-
+        /// <summary>
+        /// Returns the item of the inserted index.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public T Get(int index)
         {
             return items[index];
         }
 
+        /// <summary>
+        /// Replaces the item of the inserted index with the inserted item.
+        /// Also increases size of array if inserted index is outside the bounds of the list.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="item"></param>
         public void Set(int index, T item)
         {
             if (index >= Count)
@@ -84,33 +81,41 @@
              items[index] = item;
         }
 
+        /// <summary>
+        /// Removes all items from list and sets Count to 0.
+        /// </summary>
         public void Clear()
         {
             items = Array.Empty<T>();
             Count = 0;
         }
-/// <summary>
-/// // Removes one item from the list.
-/// </summary>
-/// <param name="index"></param>
+        
+        /// <summary>
+        /// // Removes one item from the list.
+        /// </summary>
+        /// <param name="index"></param>
+        public void RemoveAt(int index)
+        {
+            T[] newArray = new T[Count - 1];
+            for (int i = 0; i < index; i++)
+            {
+                newArray[i] = items[i];
+            }
 
-public void RemoveAt(int index)
-{
-    T[] newArray = new T[Count - 1];
-    for (int i = 0; i < index; i++)
-    {
-        newArray[i] = items[i];
-    }
+            for (int i = index; i < (Count) - index; i++)
+            {
+                newArray[i] = items[i + 1];
+            }
 
-    for (int i = index; i < (Count) - index; i++)
-    {
-        newArray[i] = items[i + 1];
-    }
+            items = newArray;
+            Count--;
+        }
 
-    items = newArray;
-    Count--;
-}
-
+        /// <summary>
+        /// Checks if the list contains the inserted item.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
        public bool Contains(T item)
        {
            for (var i = 0; i < items.Length; i++)
