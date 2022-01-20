@@ -4,7 +4,7 @@ namespace TurboStack.Test;
 
 public class Tests
 {
-    public class CountTests
+    public class WhenUsingCountTests
     {
         [Test]
             public void CountOfStackIsFive()
@@ -21,10 +21,10 @@ public class Tests
             }
     }
 
-    public class PeekTests
+    public class WhenUsingPeekTests
     {
         [Test]
-            public void CanPeekTheSameValueTwice()
+            public void PeekingTwiceReturnsSameValue()
             {
                 var stack = new TurboStack<int>();
                 stack.Push(2);
@@ -39,7 +39,7 @@ public class Tests
             }
     }
 
-    public class PopTests
+    public class WhenUsingPopTests
     {
         [Test]
             public void PoppingReturns3Then1()
@@ -53,10 +53,10 @@ public class Tests
             }
     }
 
-    public class ClearTests
+    public class WhenUsingClearTests
     {
         [Test]
-            public void StackIsEmptyAfterClear()
+            public void StackBecomesEmpty()
             {
                 var stack = new TurboStack<int>();
                 stack.Push(10);
